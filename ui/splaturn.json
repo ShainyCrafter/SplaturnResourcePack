@@ -1,0 +1,260 @@
+{
+  "namespace": "splaturn",
+  "anim_color": {
+    "anim_type": "color",
+    "duration": 2.0,
+    "from": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "to": [
+      1.0,
+      1.0,
+      0.0
+    ],
+    "next": "@splaturn.anim_color_reverse"
+  },
+  "anim_color_reverse": {
+    "anim_type": "color",
+    "duration": 2.0,
+    "from": [
+      1.0,
+      1.0,
+      0.0
+    ],
+    "to": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "next": "@splaturn.anim_color"
+  },
+  "anim_size": {
+    "anim_type": "size",
+    "duration": 2.0,
+    "from": [
+      "100%c",
+      10
+    ],
+    "to": [
+      "200%c",
+      20
+    ],
+    "next": "@splaturn.anim_size_reverse"
+  },
+  "anim_size_reverse": {
+    "anim_type": "size",
+    "duration": 2.0,
+    "from": [
+      "200%c",
+      20
+    ],
+    "to": [
+      "100%c",
+      10
+    ],
+    "next": "@splaturn.anim_size"
+  },
+  "zero": {
+    "type": "image",
+    "texture": "textures/ui/splaturn/zero",
+    "size": [
+      "70%y",
+      "100%"
+    ],
+    "anims": [
+      "@splaturn.anim_color"
+    ],
+    "disable_anim_fast_forward": true,
+    "$include": "0:",
+    "bindings": [
+      {
+        "binding_name": "#bossName",
+        "binding_type": "collection",
+        "binding_collection_name": "boss_bars"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "((#bossName / $include) > 0)",
+        "target_property_name": "#visible"
+      }
+    ]
+  },
+  "one@splaturn.zero": {
+    "texture": "textures/ui/splaturn/one",
+    "$include": "1:"
+  },
+  "two@splaturn.zero": {
+    "texture": "textures/ui/splaturn/two",
+    "$include": "2:"
+  },
+  "three@splaturn.zero": {
+    "texture": "textures/ui/splaturn/three",
+    "$include": "3:"
+  },
+  "four@splaturn.zero": {
+    "texture": "textures/ui/splaturn/four",
+    "$include": "4:"
+  },
+  "five@splaturn.zero": {
+    "texture": "textures/ui/splaturn/five",
+    "$include": "5:"
+  },
+  "six@splaturn.zero": {
+    "texture": "textures/ui/splaturn/six",
+    "$include": "6:"
+  },
+  "seven@splaturn.zero": {
+    "texture": "textures/ui/splaturn/seven",
+    "$include": "7:"
+  },
+  "eight@splaturn.zero": {
+    "texture": "textures/ui/splaturn/eight",
+    "$include": "8:"
+  },
+  "nine@splaturn.zero": {
+    "texture": "textures/ui/splaturn/nine",
+    "$include": "9:"
+  },
+  "colon": {
+    "type": "image",
+    "texture": "textures/ui/splaturn/colon",
+    "size": [
+      "37.5%y",
+      "80%"
+    ],
+    "anims": [
+      "@splaturn.anim_color"
+    ],
+    "disable_anim_fast_forward": true
+  },
+  "splaturn_panel": {
+    "type": "panel",
+    "anchor_from": "top_middle",
+    "anchor_to": "top_middle",
+    "size": [
+      182,
+      20
+    ],
+    "controls": [
+      {
+        "time": {
+          "type": "stack_panel",
+          "anchor_from": "top_middle",
+          "anchor_to": "top_middle",
+          "orientation": "horizontal",
+          "anims": [
+            "@splaturn.anim_size"
+          ],
+          "disable_anim_fast_forward": true,
+          "controls": [
+            {
+              "zero@splaturn.zero": {}
+            },
+            {
+              "one@splaturn.one": {}
+            },
+            {
+              "two@splaturn.two": {}
+            },
+            {
+              "three@splaturn.three": {}
+            },
+            {
+              "four@splaturn.four": {}
+            },
+            {
+              "five@splaturn.five": {}
+            },
+            {
+              "six@splaturn.six": {}
+            },
+            {
+              "seven@splaturn.seven": {}
+            },
+            {
+              "eight@splaturn.eight": {}
+            },
+            {
+              "nine@splaturn.nine": {}
+            },
+            {
+              "spacer": {
+                "type": "panel",
+                "size": [
+                  "20%y",
+                  "100%"
+                ]
+              }
+            },
+            {
+              "colon@splaturn.colon": {}
+            },
+            {
+              "spacer2": {
+                "type": "panel",
+                "size": [
+                  "20%y",
+                  "100%"
+                ]
+              }
+            },
+            {
+              "zero2": {
+                "type": "image",
+                "texture": "textures/ui/splaturn/zero",
+                "size": [
+                  "70%y",
+                  "100%"
+                ],
+                "anims": [
+                  "@splaturn.anim_color"
+                ]
+              }
+            },
+            {
+              "spacer3": {
+                "type": "panel",
+                "size": [
+                  "20%y",
+                  "100%"
+                ]
+              }
+            },
+            {
+              "zero3": {
+                "type": "image",
+                "texture": "textures/ui/splaturn/zero",
+                "size": [
+                  "70%y",
+                  "100%"
+                ],
+                "anims": [
+                  "@splaturn.anim_color"
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ],
+    "bindings": [
+      {
+        "binding_name": "#bar_visible",
+        "binding_type": "collection",
+        "binding_collection_name": "boss_bars"
+      },
+      {
+        "binding_name": "#bossName",
+        "binding_type": "collection",
+        "binding_collection_name": "boss_bars"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(#bar_visible and (#bossName / :))",
+        "target_property_name": "#visible"
+      }
+    ]
+  }
+}

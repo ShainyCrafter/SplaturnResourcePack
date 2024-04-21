@@ -1,0 +1,53 @@
+{
+  "namespace": "hud",
+  "boss_health_panel": {
+    "modifications": [
+      {
+        "array_name": "bindings",
+        "operation": "replace",
+        "where": {
+          "binding_name": "#bar_visible"
+        },
+        "value": {
+          "binding_name": "#bar_visible",
+          "binding_type": "collection",
+          "binding_collection_name": "boss_bars"
+        }
+      },
+      {
+        "array_name": "bindings",
+        "operation": "insert_back",
+        "value": [
+          {
+            "binding_name": "#bossName",
+            "binding_type": "collection",
+            "binding_collection_name": "boss_bars"
+          },
+          {
+            "binding_type": "view",
+            "source_property_name": "(#bar_visible and (not (#bossName / :)))",
+            "target_property_name": "#visible"
+          }
+        ]
+      }
+    ]
+  },
+  "boss_health_panel_wrapper": {
+    "type": "panel",
+    "size": [
+      "100%cm",
+      "100%cm"
+    ],
+    "controls": [
+      {
+        "boss_health_panel@hud.boss_health_panel": {}
+      },
+      {
+        "splaturn_panel@splaturn.splaturn_panel": {}
+      }
+    ]
+  },
+  "boss_health_grid": {
+    "grid_item_template": "hud.boss_health_panel_wrapper"
+  }
+}
